@@ -24,7 +24,7 @@ jobs:
       examples: ${{ steps.matrix.outputs.examples }}
       examples_count: ${{ steps.matrix.outputs.examples_count }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - uses: ./.github/actions/setup-ci-deps
       - id: matrix
         env:
@@ -48,7 +48,7 @@ jobs:
     env:
       MISE_ENV: ${{ inputs.variant }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - name: Cache MapVina Native source
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
@@ -87,7 +87,7 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.prepare-matrices.outputs.bindings) }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - uses: ./.github/actions/setup-ci-deps
       - uses: ./.github/actions/use-pixi-lavapipe
         if: ${{ startsWith(inputs.variant, 'linux-') }}
@@ -111,7 +111,7 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.prepare-matrices.outputs.examples) }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - uses: ./.github/actions/setup-ci-deps
       - uses: ./.github/actions/use-pixi-lavapipe
         if: ${{ startsWith(inputs.variant, 'linux-') }}
